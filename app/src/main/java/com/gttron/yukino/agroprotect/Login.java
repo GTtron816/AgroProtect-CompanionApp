@@ -50,8 +50,8 @@ public class Login extends AppCompatActivity {
         regt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Login.this, Register.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
             }
         });
 
@@ -122,10 +122,12 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            String devip= devIpEditText.getText().toString();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(Login.this, MainActivity.class);
+                            intent.putExtra("devIP",devip);
                             startActivity(intent);
 
                         } else {
