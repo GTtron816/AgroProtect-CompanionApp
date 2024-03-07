@@ -2,7 +2,9 @@ package com.gttron.yukino.agroprotect;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,7 +29,8 @@ import java.util.regex.Pattern;
 public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailEditText, passwordEditText,devIpEditText;
-
+    SharedPreferences preferences;
+    String devip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (validateLogin()) {
+
                     LoginUser();
                 }
             }
@@ -122,8 +126,12 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            String devip= devIpEditText.getText().toString();
-                            // Sign in success, update UI with the signed-in user's information
+                             devip=devIpEditText.getText().toString();
+                                preferences = getApplicationContext().getSharedPreferences("devip", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("devip", devip);
+                                editor.apply();
+                                Log.d(TAG, "Switch State Saved - Key: biometric, Value: " + devip);
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(Login.this, MainActivity.class);
