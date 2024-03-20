@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Control">
+
+    <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+        android:id="@+id/tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:justifyContent="space_between"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toggle_requiredAmount="0"
+        app:toggle_selectableAmount="2">
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/sound"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            app:layout_flexGrow="1"
+            app:toggle_icon="@drawable/baseline_volume_off_24"
+            app:toggle_iconGravity="top|center"
+            app:toggle_iconPaddingHorizontal="15dp"
+            app:toggle_iconPaddingTop="15dp"
+            app:toggle_selectedBackgroundColor="#5e6fed"
+            app:toggle_selectedIcon="@drawable/baseline_volume_up_24"
+            app:toggle_selectedTextColor="@android:color/white"
+            app:toggle_text="Sound Control"
+            app:toggle_textGravity="bottom|center"
+            app:toggle_textPaddingBottom="20dp" />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/light"
+            android:layout_width="0dp"
+            android:layout_height="145dp"
+            app:layout_flexGrow="1"
+            app:toggle_icon="@drawable/baseline_lightbulb_24"
+            app:toggle_iconGravity="top|center"
+            app:toggle_iconPaddingHorizontal="15dp"
+            app:toggle_iconPaddingTop="15dp"
+            app:toggle_selectedBackgroundColor="#5e6fed"
+            app:toggle_selectedIcon="@drawable/baseline_lightbulbl_24"
+            app:toggle_selectedTextColor="@android:color/white"
+            app:toggle_text="Light Control"
+            app:toggle_textGravity="bottom|center"
+            app:toggle_textPaddingBottom="20dp" />
+
+
+    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,8 +42,7 @@ dependencies {
     implementation ("com.google.android.exoplayer:exoplayer-core:2.16.1")
     implementation ("com.google.android.exoplayer:exoplayer-ui:2.16.1")
     implementation ("com.google.android.exoplayer:exoplayer-hls:2.16.1")
-
-
-
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
+    implementation ("nl.bryanderidder:themed-toggle-button-group:1.4.1")
 
 }
