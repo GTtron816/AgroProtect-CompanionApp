@@ -17,14 +17,27 @@ import nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup;
 
 public class Control extends AppCompatActivity {
     ThemedToggleButtonGroup th1;
+    ThemedButton light,sound;
     SharedPreferences preferences1,preferences2;
     private DatabaseReference databaseReference;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("detected_classes");
+        light=findViewById(R.id.light);
+        sound=findViewById(R.id.sound);
         th1 = findViewById(R.id.tags);
+        preferences1 = getApplicationContext().getSharedPreferences("sound", Context.MODE_PRIVATE);
+        preferences2 = getApplicationContext().getSharedPreferences("light", Context.MODE_PRIVATE);
+        boolean switchSound = preferences1.getBoolean("sound", false);
+        boolean switchLight=preferences2.getBoolean("light",false);
+        if(switchLight){
+            th1.selectButton(R.id.light);
+        }
+        if (switchSound){
+            th1.selectButton(R.id.sound);
+        }
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("detected_classes");
         th1.setOnSelectListener((ThemedButton btn) -> {
             if(btn.isSelected()){
             if(btn.getId()==R.id.sound){
