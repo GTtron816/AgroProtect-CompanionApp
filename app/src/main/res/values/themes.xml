@@ -3,7 +3,38 @@
     <style name="Base.Theme.AgroProtect" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/monetbuttonlb</item>
+        <item name="colorPrimaryVariant">@color/monetbuttonlb</item>
+        <item name="colorOnPrimary">@color/monetbglb</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/moneticonlb</item>
+        <item name="colorSecondaryVariant">@color/monetbuttonlb</item>
+        <item name="colorOnSecondary">@color/monetbglb</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/moneticonlb</item>
     </style>
 
     <style name="Theme.AgroProtect" parent="Base.Theme.AgroProtect" />
+    <style name="cardbg">
+        <item name="android:background">@color/monetbuttonb</item>
+
+    </style>
+
+    <style name="sw">
+        <item name="android:textColor">@color/moneticonlb</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="nav">
+        <item name="android:textColor">@color/moneticonlb</item>
+        <item name="android:background">@color/monetshadelb</item>
+    </style>
+    <style name="FabStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/monetbuttonlb</item>
+        <item name="tint">@color/moneticonb</item>
+    </style>
+    <style name="SpStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:background">"@drawable/spinnerbackground"</item>
+    </style>
 </resources>
