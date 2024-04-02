@@ -1,8 +1,11 @@
 package com.gttron.yukino.agroprotect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,11 +22,30 @@ public class Control extends AppCompatActivity {
     ThemedToggleButtonGroup th1;
     ThemedButton light,sound;
     SharedPreferences preferences1,preferences2;
+    ImageButton btn1,btn2,btn3;
     private DatabaseReference databaseReference;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+        btn1=findViewById(R.id.btn1);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Control.this,MainActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+        btn3=findViewById(R.id.btn3);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Control.this,Profile.class);
+                finish();
+                startActivity(intent);
+            }
+        });
         light=findViewById(R.id.light);
         sound=findViewById(R.id.sound);
         th1 = findViewById(R.id.tags);
@@ -106,5 +128,13 @@ public class Control extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

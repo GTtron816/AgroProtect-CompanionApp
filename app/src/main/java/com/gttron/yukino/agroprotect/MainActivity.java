@@ -105,4 +105,11 @@ public class MainActivity extends AppCompatActivity {
         alertDialog = dialogBuilder.create();
         alertDialog.show();
     }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
 }
